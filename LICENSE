@@ -1,0 +1,49 @@
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+DISCLAIMER
+
+This software interacts with smart contracts on the Radix distributed ledger.
+By using this SDK, you acknowledge and accept that:
+
+1. ON-LEDGER RISKS: Transactions submitted to the Radix Network are 
+   irreversible. You are solely responsible for verifying transaction details
+   before submission.
+
+2. FINANCIAL RISKS: Domain registration requires bonding digital assets. The
+   value of these assets may fluctuate. You may lose some or all of the value
+   of assets used in transactions.
+
+3. SMART CONTRACT RISKS: While the Namespace smart contracts have been designed with
+   care, no software is free from bugs or vulnerabilities. The authors and
+   contributors are not liable for any losses arising from smart contract
+   interactions.
+
+4. NO FINANCIAL ADVICE: This software and its documentation do not constitute
+   financial, legal, or investment advice. Consult appropriate professionals
+   before making financial decisions.
+
+5. THIRD-PARTY SERVICES: This SDK interacts with third-party services including
+   the Radix Gateway API. The authors are not responsible for the availability,
+   accuracy, or security of these services.
+
+USE AT YOUR OWN RISK.

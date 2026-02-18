@@ -1,0 +1,53 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src/index.ts"],
+  "out": "./docs",
+  "name": "Namespace Typescript SDK",
+  "readme": "./README.md",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "includeVersion": true,
+  "categorizeByGroup": true,
+  "blockTags": [
+    "@param",
+    "@returns",
+    "@example",
+    "@category",
+    "@requireDependencies"
+  ],
+  "categoryOrder": [
+    "Domain Queries",
+    "Domain Transactions", 
+    "Record Management",
+    "Subdomains",
+    "Account Settings",
+    "Reserved Domains",
+    "Registrar System",
+    "Subregistry Management",
+    "Utilities",
+    "*"
+  ],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "plugin": [],
+  "theme": "default",
+  "gitRevision": "main",
+  "exclude": [
+    "**/node_modules/**",
+    "**/tests/**",
+    "**/*.test.ts",
+    "**/mappings/**",
+    "**/decorators/**"
+  ],
+  "externalPattern": ["**/node_modules/**"],
+  "excludeExternals": true,
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": false
+  }
+}
+

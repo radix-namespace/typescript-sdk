@@ -1,0 +1,63 @@
+name: Publish NPM Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/
+      
+      - name: Clean lockfile and modules
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
+      
+      - run: npm install
+      - run: npm test
+      - run: npm run build
+      
+      - name: Upload dist folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: rns-sdk
+          path: dist
+      
+      - name: Determine NPM tag
+        id: npm-tag
+        run: |
+          VERSION="${{ github.event.release.tag_name }}"
+          IS_PRERELEASE="${{ github.event.release.prerelease }}"
+          
+          # Determine tag based on version string or prerelease flag
+          if [[ "$IS_PRERELEASE" == "true" ]]; then
+            if [[ "$VERSION" == *"-alpha"* ]]; then
+              echo "tag=alpha" >> $GITHUB_OUTPUT
+            elif [[ "$VERSION" == *"-beta"* ]]; then
+              echo "tag=beta" >> $GITHUB_OUTPUT
+            elif [[ "$VERSION" == *"-rc"* ]]; then
+              echo "tag=rc" >> $GITHUB_OUTPUT
+            else
+              echo "tag=next" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "tag=latest" >> $GITHUB_OUTPUT
+          fi
+          
+          echo "Publishing with tag: $(cat $GITHUB_OUTPUT | grep tag | cut -d= -f2)"
+      
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ steps.npm-tag.outputs.tag }}
